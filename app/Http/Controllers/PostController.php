@@ -12,9 +12,9 @@ class PostController extends Controller
         return view('blog-post',compact('post'));
     }
 
-    public function create(Post $post)
+    public function create()
     {   
-        return view('blog-post',compact('post'));
+        return view('admin.post.create');
     }
 
 
