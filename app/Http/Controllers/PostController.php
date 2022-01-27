@@ -11,4 +11,13 @@ class PostController extends Controller
     {   
         return view('blog-post',compact('post'));
     }
+
+    public function create(Post $post)
+    {   
+        return view('blog-post',compact('post'));
+    }
+
+
+
+
 }
