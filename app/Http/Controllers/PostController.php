@@ -17,6 +17,20 @@ class PostController extends Controller
         return view('admin.post.create');
     }
 
+    public function store()
+    {   
+        $inputs = request()->validate([
+            
+            'title'=>'required|min:10|max:255',
+            'post_image' =>'mimes:jpeg,jpg,png',
+            'body'=>'required'   
+        ]);
+
+        if (request('post_image')){
+            $inputs['post_image']=request('post_image')->store('image');
+        }
+        // return view('admin.post.create');
+    }
 
 
 

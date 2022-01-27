@@ -21,7 +21,7 @@ Route::middleware('auth')->group(function()
 
 
     Route::get('/admin/post/create', [App\Http\Controllers\PostController::class, 'create'])->name('Post.create');
-    Route::get('/admin/posts', [App\Http\Controllers\PostController::class, 'store'])->name('Post.store');
+    Route::post('/admin/posts', [App\Http\Controllers\PostController::class, 'store'])->name('post.store');
 
 
 });
