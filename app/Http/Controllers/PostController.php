@@ -17,7 +17,7 @@ class PostController extends Controller
         return view('admin.post.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {   
         $inputs = request()->validate([
             
@@ -27,9 +27,12 @@ class PostController extends Controller
         ]);
 
         if (request('post_image')){
-            $inputs['post_image']=request('post_image')->store('image');
+            $inputs['post_image']=request('post_image')->store('images');
         }
-        // return view('admin.post.create');
+        
+        auth()->user()->posts()->create($inputs);
+
+        return back();
     }
 
 
